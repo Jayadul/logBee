@@ -36,10 +36,12 @@ The application can be used online, can be installed locally, or it can run as a
 
 ### Update appsettings.json
 
-    { "LogTracker": { 
+    { 
+    "LogTracker": { 
     "OrganizationId": "aec74b36-d2da-4cd4-9cd1-abde7d23553c", 
     "ApplicationId": "f0d91e36-95c6-42fd-93be-2b2e7bc066d0", 
-    "ApiUrl": "[http://localhost:5006/](http://localhost:5006/)" } }
+    "ApiUrl": "[http://localhost:5006/](http://localhost:5006/)" } 
+    }
 
 ### Update Program.cs
 
