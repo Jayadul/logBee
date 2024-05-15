@@ -1,0 +1,24 @@
+﻿::using Serilog;
+::using Serilog.Sinks.LogBee;
+::using Serilog.Sinks.LogBee.AspNetCore;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+::builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddSerilog((services, lc) => lc
+    ::.WriteTo.LogBee(
+        ::new LogBeeApiKey("<!-- ko text: organizationId --><!-- /ko -->", "<!-- ko text: applicationId --><!-- /ko -->", "<!-- ko text: logBeeBackendUri --><!-- /ko -->"),
+        ::services
+    ::));
+
+var app = builder.Build();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// register the LogBeeMiddleware just before the app.Run()
+::app.UseLogBeeMiddleware();
+
+app.Run();

@@ -1,0 +1,26 @@
+﻿<div class="card-header bg-body-tertiary d-flex flex-between-center py-2">
+    <h6 class="mb-0">
+        <a href="#" class="fw-medium" data-bind="text: application.name, attr: { 'href': application.navigation.configuration }"></a>
+    </h6>
+    <div class="ms-auto">
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Application data</a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-caret dropdown-menu-card border-0 mt-2">
+                <div class="bg-white dark__bg-1000 rounded-3 py-2">
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.alerts }">Alerts</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.dashboard }">Dashboard</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.exceptions }">Exceptions</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.requests }">Requests</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.endpoints }">Endpoints</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.users }">Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body py-3">
+    <span>
+        <span class="align-top">no data has been received</span>
+        <span class="badge rounded-pill bg-danger align-top" style="font-size: 4px;">&nbsp;</span>
+    </span>
+</div>

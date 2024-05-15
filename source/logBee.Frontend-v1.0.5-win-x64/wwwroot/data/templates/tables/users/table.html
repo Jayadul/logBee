@@ -1,0 +1,37 @@
+﻿<div class="card" data-bind="attr: { 'id': domId }">
+    <div class="card-body">
+        <div data-update-container>
+            <div data-has-sort-block data-has-filter-block>
+                <div class="mb-1">
+                    <div data-query-placeholder class="d-inline-block me-2"></div>
+                    <div data-has-filter-inline-block>
+                        <a href="#" data-clear-filters-button>remove all filters</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <div data-count-items-placeholder class="d-inline-block me-2"></div>
+                <a href="#" data-reload-button data-loading-text="reloading...">reload</a>
+            </div>
+        </div>
+        <div class="position-relative">
+            <table class="table table-sm table-bordered table-striped table-hover" style="table-layout: fixed;" data-table>
+                <thead class="bg-200">
+                    <tr></tr>
+                </thead>
+                <tbody [data-bind]="foreach: items">
+                    <tr class="cursor-pointer" data-open-user [data-bind]="attr: { 'data-row-id': user.name, 'data-user-name': user.name, 'data-application-id': applicationId }"></tr>
+                </tbody>
+            </table>
+            <div class="position-absolute top-0 start-0 h-100 modal-backdrop fade" data-loading-backdrop style="width: 0; z-index: 2;"></div>
+        </div>
+        <div data-table-data-loaded-block>
+            <div class="d-flex align-items-center">
+                <div data-pagination-container data-list class="me-2"></div>
+                <div>
+                    <a href="#" data-reload-button data-loading-text="reloading...">reload</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

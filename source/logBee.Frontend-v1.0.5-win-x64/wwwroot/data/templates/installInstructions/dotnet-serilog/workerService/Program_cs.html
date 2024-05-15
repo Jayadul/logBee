@@ -1,0 +1,25 @@
+﻿::using Serilog;
+::using Serilog.Sinks.LogBee;
+
+::var loggerContext = new NonWebLoggerContext();
+
+Log.Logger =
+    new LoggerConfiguration()
+        ::WriteTo.LogBee(
+            ::new LogBeeApiKey(
+                ::"<!-- ko text: organizationId --><!-- /ko -->",
+                ::"<!-- ko text: applicationId --><!-- /ko -->",
+                ::"<!-- ko text: logBeeBackendUri --><!-- /ko -->"
+            ::),
+            ::loggerContext
+        ::)
+        ::.CreateLogger();
+
+var builder = Host.CreateApplicationBuilder(args);
+builder.Logging.AddSerilog();
+
+builder.Services.AddHostedService&lt;Worker&gt;();
+::builder.Services.AddSingleton(loggerContext);
+
+var host = builder.Build();
+host.Run();

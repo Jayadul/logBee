@@ -1,0 +1,1 @@
+define(["jquery"],function(a){return function(t){t=a("#"+t).html(),t=a(t);if("TABLE"!==t[0].tagName)throw new Error("tag name must be TABLE");var e=t.find("th"),r=t.find("td"),t=t.attr("data-id");if(!t||!t.length)throw new Error("table [data-id] attribute must have a value");this.th=e[0].outerHTML,this.td=r[0].outerHTML,this.id=t}});

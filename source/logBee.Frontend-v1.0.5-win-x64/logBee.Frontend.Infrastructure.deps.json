@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "logBee.Frontend.Infrastructure/1.0.0": {
+        "runtime": {
+          "logBee.Frontend.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "logBee.Frontend.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

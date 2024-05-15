@@ -1,0 +1,11 @@
+﻿<table data-id="endpoint">
+    <tr>
+        <th class="p-1 align-middle">Endpoint</th>
+        <td class="text-truncate ps-2">
+            <div class="text-truncate align-middle text-800">
+                <span data-bind="text: httpMethod, css: { 'fw-bold': /^(post)$/i.test(httpMethod) }"></span>
+                <span data-bind="text: tokenizedPath"></span>
+            </div>
+        </td>
+    </tr>
+</table>

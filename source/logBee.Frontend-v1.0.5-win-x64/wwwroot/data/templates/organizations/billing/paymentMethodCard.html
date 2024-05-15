@@ -1,0 +1,12 @@
+﻿<div class="mb-3" data-payment-method data-bind="attr: { 'data-id': id }">
+    <div class="card border shadow-none px-3 py-2 bg-body-tertiary d-inline-block" data-bind="css: { 'border-primary-subtle': isDefault }">
+        <div data-bind="template: { name: 'organizations-billing-paymentMethodCard-cardBody-template' }"></div>
+        <div>
+            <a href="#" class="me-3" data-delete-payment-method>Delete</a>
+
+            <span data-bind="if: !isDefault">
+                <a href="#" class="me-3" data-set-as-default-payment-method>Set as default</a>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿<p>
+    These steps describe how to install and configure KissLog for a .NET 6 console application. <br />
+    <a href="https://github.com/KissLog-net/KissLog.Sdk.Samples/tree/main/src/dotnet6_ConsoleApp" target="_blank" class="icon-link">
+        <span class="bi-box-arrow-up-right"></span> dotnet6_ConsoleApp sample application
+    </a>
+</p>
+
+<ol>
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">KissLog.AspNetCore</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package KissLog.AspNetCore</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">appsettings.json</span>
+        </div>
+        <div class="container-wmax-md">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-appsettings_json-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Program.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-dotnet6_consoleApp-Program_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+</ol>

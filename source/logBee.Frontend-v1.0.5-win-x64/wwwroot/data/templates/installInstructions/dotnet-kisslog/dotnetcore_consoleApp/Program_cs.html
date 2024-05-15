@@ -1,0 +1,62 @@
+﻿::using KissLog;
+::using KissLog.AspNetCore;
+::using KissLog.CloudListeners.Auth;
+::using KissLog.CloudListeners.RequestLogsListener;
+::using KissLog.Formatters;
+
+namespace ConsoleApp_NetCore
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ::Logger.SetFactory(new LoggerFactory(new Logger(url: "ConsoleApp/Main")));
+
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+
+            var services = new ServiceCollection();
+            services.AddLogging(logging =>
+            {
+                logging
+                    .AddConfiguration(configuration.GetSection("Logging"))
+                    ::.AddKissLog(options =>
+                    ::{
+                        ::options.Formatter = (FormatterArgs args) =>
+                        ::{
+                            ::if (args.Exception == null)
+                                ::return args.DefaultValue;
+
+                            ::string exceptionStr = new ExceptionFormatter().Format(args.Exception, args.Logger);
+
+                            ::return string.Join(Environment.NewLine, new[] { args.DefaultValue, exceptionStr });
+                        ::};
+                    ::});
+            });
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            ::ConfigureKissLog(configuration);
+
+            ::ILogger logger = serviceProvider.GetService&lt;ILogger&lt;Program&gt;&gt;();
+
+            logger.Info("Hello world from netcoreapp3.1!");
+
+            ::var loggers = Logger.Factory.GetAll();
+            ::Logger.NotifyListeners(loggers);
+        }
+
+        ::private static void ConfigureKissLog(IConfiguration configuration)
+        ::{
+            ::KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
+                ::configuration["LogBee.OrganizationId"],    //  "<!-- ko text: organizationId --><!-- /ko -->"
+                ::configuration["LogBee.ApplicationId"])     //  "<!-- ko text: applicationId --><!-- /ko -->"
+            ::)
+            ::{
+                ::ApiUrl = configuration["LogBee.ApiUrl"],    //  "<!-- ko text: logBeeBackendUri --><!-- /ko -->"
+                ::UseAsync = false
+            ::});
+        ::}
+    }
+}

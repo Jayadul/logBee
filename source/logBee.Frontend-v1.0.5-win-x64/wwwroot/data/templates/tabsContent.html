@@ -1,0 +1,13 @@
+﻿<div>
+    <ul class="nav nav-tabs" role="tablist" data-tabs data-bind="foreach: tabs">
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false"
+                data-bind="attr: { 'data-id': id, 'id': tabDomId, 'href': '#' + tabContentDomId, 'aria-controls': tabContentDomId }, text: displayName"></a>
+        </li>
+    </ul>
+    <div class="tab-content border border-top-0 p-3" data-bind="foreach: tabs">
+        <div class="tab-pane" role="tabpanel" data-bind="attr: { 'id': tabContentDomId, 'aria-labelledby': tabDomId }">
+            <div data-bind="template: { 'name': templatePath, data: knockoutData }"></div>
+        </div>
+    </div>
+</div>

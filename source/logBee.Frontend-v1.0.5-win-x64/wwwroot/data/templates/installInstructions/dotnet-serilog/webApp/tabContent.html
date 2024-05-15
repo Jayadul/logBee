@@ -1,0 +1,42 @@
+﻿<p>
+    These steps describe how to install and configure Serilog.Sinks.LogBee.AspNetCore for a .NET web application. <br />
+    A full example can be found <a target="_blank" class="icon-link" href="https://github.com/logBee-net/serilog-sinks-logbee/tree/main/samples/Serilog.Sinks.LogBee_WebApp"><span class="bi-box-arrow-up-right"></span> here</a>.
+</p>
+
+<ol>
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">Serilog.Sinks.LogBee.AspNetCore</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package Serilog.Sinks.LogBee.AspNetCore</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">appsettings.json</span>
+        </div>
+        <div class="container-wmax-md">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-appsettings_json-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Program.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-serilog-webApp-Program_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Write logs
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-serilog-webApp-HomeController_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+</ol>

@@ -1,0 +1,16 @@
+﻿<table data-id="logs">
+    <tr>
+        <th style="width: 100px;" class="p-1 align-middle d-none d-xl-table-cell">Logs</th>
+        <td class="text-truncate ps-2 d-none d-xl-table-cell">
+            <div class="text-truncate cursor-default" data-bind="foreach: APP.sortLogsSummaryByPriority(requestLog.logsSummary), attr: { 'title': requestLog.logsSummary.map(function(item) { return item.count + ' ' + item.logLevel; }).join(', ') }">
+                <span class="badge" data-bind="text: count,
+                      css: {
+                        'badge-subtle-secondary': logLevel === 'Trace' || logLevel === 'Debug',
+                        'badge-subtle-primary': logLevel === 'Information',
+                        'badge-subtle-warning': logLevel === 'Warning',
+                        'badge-subtle-danger': logLevel === 'Error' || logLevel === 'Critical'
+                      }"></span>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,18 @@
+﻿<ul data-bind="foreach: items" class="list-unstyled row row-cols-2">
+    <li>
+        <div class="d-flex align-items-center cursor-default">
+            <div class="status-code-icon text-truncate" data-bind="attr: { 'class': 'status-code-icon text-truncate ' + 'status-code-' + httpStatusCode }">
+                <a href="#" class="align-middle link-800" data-search-requests data-bind="attr: { 'title': 'Search requests with ' + httpStatusCode + ' status code' }">
+                    <span data-bind="text: httpStatusCode"></span>
+                    <span data-bind="text: httpStatusCodeText"></span>
+                </a>
+                <span class="d-none" data-search-query data-filter-field="HttpStatusCode" data-filter-operator="EqualTo" data-sort-field="StartDateTime" data-sort-direction="desc" data-bind="attr: { 'data-requests-url': $parent.requestsUrl }">
+                    <textarea data-bind="value: httpStatusCode"></textarea>
+                </span>
+            </div>
+            <div class="ms-3">
+                <div class="text-truncate" data-bind="text: APP.formatNumeral(count, count > 1000 ? '0.0a' : '0,0')"></div>
+            </div>
+        </div>
+    </li>
+</ul>

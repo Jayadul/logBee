@@ -1,0 +1,21 @@
+﻿<table data-id="chart">
+    <tr>
+        <th style="width: 180px;" class="p-1 align-middle d-none d-lg-table-cell">Last 24h</th>
+        <td class="d-none d-lg-table-cell">
+            <div data-bind="if: $data['chartData']">
+                <div class="border ps-1">
+                    <canvas height="50" data-exception-chart style="max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <div class="fs--2">
+                <span data-bind="if: $data['chartData']">
+                    <span data-bind="text: chartData.intervals.map(item => item.value).reduce((a, b) => a + b, 0)"></span>
+                    <span>total occ.</span>
+                </span>
+                <span data-bind="if: !$data['chartData']">
+                    <span>0 occ.</span>
+                </span>
+            </div>
+        </td>
+    </tr>
+</table>

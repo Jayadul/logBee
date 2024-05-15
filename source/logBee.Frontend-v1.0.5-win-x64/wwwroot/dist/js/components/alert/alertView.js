@@ -1,0 +1,1 @@
+define(["js/components/request/RequestContent","js/components/alert/AlertContent"],function(n,t){return{init:function(){new n({domId:"content"}),new t({domId:"content"})}}});

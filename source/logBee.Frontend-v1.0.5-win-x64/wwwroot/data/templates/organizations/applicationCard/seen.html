@@ -1,0 +1,50 @@
+﻿<div class="card-header bg-body-tertiary d-flex flex-between-center py-2">
+    <h6 class="mb-0">
+        <a href="#" class="fw-medium" data-bind="text: application.name, attr: { 'href': application.navigation.configuration }"></a>
+    </h6>
+    <div class="ms-auto">
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Application data</a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-caret dropdown-menu-card border-0 mt-2">
+                <div class="bg-white dark__bg-1000 rounded-3 py-2">
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.alerts }">Alerts</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.dashboard }">Dashboard</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.exceptions }">Exceptions</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.requests }">Requests</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.endpoints }">Endpoints</a>
+                    <a href="#" class="dropdown-item fw-normal" data-bind="attr: { 'href': application.navigation.users }">Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <table>
+                    <tbody>
+                        <tr data-bind="with: applicationData.sdkPackages[applicationData.sdkPackages.length - 1]">
+                            <th class="pe-5">Package</th>
+                            <td>
+                                <span data-bind="text: name"></span>
+                                <span data-bind="text: version"></span>
+                            </td>
+                        </tr>
+                        <tr data-bind="with: applicationData.lastRequestLog">
+                            <th class="pe-5">Last request</th>
+                            <td>
+                                <time data-time-ago data-bind="attr: { 'datetime': dateTime, 'title': dateTime }"></time>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="container-wmax-sm ms-lg-auto">
+                <canvas height="80" data-usage-chart></canvas>
+            </div>
+        </div>
+    </div>
+</div>

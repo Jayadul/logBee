@@ -1,0 +1,1 @@
+define(["js/components/Modal"],function(n){function e(){(new n).load("/Components/LogBeeFreeLicenseModal")}return new function(){this.open=e}});

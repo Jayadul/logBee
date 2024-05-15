@@ -1,0 +1,1 @@
+define(["logBee","jquery"],function(e,n){return{init:function(){e.bindForm("form"),document.getElementById("Password").focus()}}});

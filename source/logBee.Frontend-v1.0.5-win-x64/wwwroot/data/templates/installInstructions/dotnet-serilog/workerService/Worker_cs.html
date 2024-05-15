@@ -1,0 +1,32 @@
+﻿::using Serilog.Sinks.LogBee;
+
+namespace Serilog.Sinks.LogBee_WorkerService
+{
+    public class Worker : BackgroundService
+    {
+        ::private readonly ILogger&lt;Worker&gt; _logger;
+        ::private readonly NonWebLoggerContext _loggerContext;
+        public Worker(
+            ILogger&lt;Worker&gt; logger,
+            NonWebLoggerContext loggerContext)
+        {
+            _logger = logger;
+            _loggerContext = loggerContext;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            int i = 0;
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                ::_loggerContext.Reset($"http://application/worker-service/execution/{++i}", "GET");
+
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                ::await _loggerContext.FlushAsync();
+
+                await Task.Delay(5000, stoppingToken);
+            }
+        }
+    }
+}

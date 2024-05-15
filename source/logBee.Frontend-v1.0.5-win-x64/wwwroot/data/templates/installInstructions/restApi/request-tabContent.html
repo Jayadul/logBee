@@ -1,0 +1,36 @@
+﻿<p>
+    You can create logs by consuming the REST endpoint provided by logBee.Backend.
+</p>
+
+<div class="mb-3">
+    <div class="card border shadow-none mb-3">
+        <div class="card-header bg-body-tertiary d-flex flex-between-center py-2">
+            <div class="text-truncate">
+                <pre class="text-truncate" data-bind="text: 'POST ' + logBeeBackendCreateRequestUri"></pre>
+            </div>
+            <div class="ms-auto">
+                <button type="button" class="btn btn-sm btn-falcon-primary" data-loading-text="Sending..." data-submit>Send</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div [data-bind]="with: createRequestResponse()">
+                <div class="mb-3">
+                    <div>
+                        <label>Response</label>
+                        <pre class="input-style-box" [data-bind]="html: responseAsString"></pre>
+                    </div>
+                    <div [data-bind]="if: !!$data['requestLog']">
+                        <div class="mt-2">
+                            <label>Request created</label>
+                            <div class="d-inline-block">
+                                <div [data-bind]="template: { name: 'inline-request-request-template', data: requestLog }"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <textarea name="request" id="payloadTextArea"></textarea>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿<p>
+    These steps describe how to install and configure KissLog for a .NET Framework Console Application. <br />
+    <a href="https://github.com/KissLog-net/KissLog.Sdk.Samples/tree/main/src/netframework_ConsoleApp" target="_blank" class="icon-link">
+        <span class="bi-box-arrow-up-right"></span> netframework_ConsoleApp sample application
+    </a>
+</p>
+
+<ol>
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">KissLog</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package KissLog</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">KissLog.CloudListeners</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package KissLog.CloudListeners</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">App.config</span>
+        </div>
+        <div class="container-wmax-md">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-App_config-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Program.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-aspnet_consoleApp-Program_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+</ol>

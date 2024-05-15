@@ -1,0 +1,12 @@
+﻿<table data-id="exception">
+    <tr>
+        <th class="p-1 align-middle">Exception</th>
+        <td>
+            <div>
+                <div class="text-truncate text-800" data-bind="text: exception.exception.exceptionType"></div>
+                <div data-bind="text: exception.exception.exceptionMessage"></div>
+            </div>
+            <div class="d-none" data-exception-model data-bind="text: JSON.stringify(exception.exception)"></div>
+        </td>
+    </tr>
+</table>

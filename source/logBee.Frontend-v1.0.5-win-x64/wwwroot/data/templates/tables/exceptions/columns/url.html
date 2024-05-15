@@ -1,0 +1,14 @@
+﻿<table data-id="url">
+    <tr>
+        <th class="p-1 align-middle d-none d-xl-table-cell">Last seen</th>
+        <td class="text-truncate d-none d-xl-table-cell" data-bind="with: exception.requestLog">
+            <div class="status-code-icon text-truncate"
+                 data-bind="attr: { 'class': 'status-code-icon text-truncate ' + 'status-code-' + httpProperties.response.httpStatusCode, 'title': httpProperties.response.httpStatusCode + ' ' + httpProperties.response.httpStatusCodeText }">
+                <span class="align-middle text-800">
+                    <span data-bind="text: httpProperties.httpMethod, css: { 'fw-bold': /^(post)$/i.test(httpProperties.httpMethod) }"></span>
+                    <span data-bind="text: httpProperties.url.path"></span>
+                </span>
+            </div>
+        </td>
+    </tr>
+</table>

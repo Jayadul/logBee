@@ -1,0 +1,29 @@
+<div class="toast align-items-center mb-2 fs--1" role="alert" aria-live="assertive" aria-atomic="true"
+    data-bind="
+     attr: { 'id': domId },
+     css: {
+        'bg-light': ['error','success'].indexOf(type) === -1,
+        'border-0': ['error','success'].indexOf(type) !== -1,
+        'bg-danger-subtle text-danger': type === 'error',
+        'bg-success-subtle text-success-emphasis': type === 'success'
+     }">
+    
+    <div class="toast-header py-1" data-bind="
+         css: {
+            'bg-danger-subtle text-danger': type === 'error',
+            'bg-success-subtle text-success-emphasis': type === 'success'
+         }">
+        <strong class="me-auto" data-bind="text: title"></strong>
+        <div>
+            <button type="button" class="btn-close m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="toast-body py-1">
+        <div data-bind="foreach: lines">
+            <div data-bind="text: $data"></div>
+        </div>
+        <div data-bind="if: listItems.length > 0">
+            <div data-bind="template: { 'name': 'unordered-list-template', data: { items: listItems } }"></div>
+        </div>
+    </div>
+</div>

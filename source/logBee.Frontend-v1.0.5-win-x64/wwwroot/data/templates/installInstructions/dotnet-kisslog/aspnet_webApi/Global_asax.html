@@ -1,0 +1,65 @@
+﻿::using KissLog;
+::using KissLog.AspNet.Web;
+::using KissLog.CloudListeners.Auth;
+::using KissLog.CloudListeners.RequestLogsListener;
+using System;
+using System.Configuration;
+using System.Diagnostics;
+using System.Text;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace MyApp.WebApi
+{
+    public class WebApiApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ::ConfigureKissLog();
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            if (exception != null)
+            {
+                ::var logger = Logger.Factory.Get();
+                ::logger.Error(exception);
+
+                ::if (logger.AutoFlush() == false)
+                ::{
+                    ::Logger.NotifyListeners(logger);
+                ::}
+            }
+        }
+
+        ::private void ConfigureKissLog()
+        ::{
+            ::KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
+                ::ConfigurationManager.AppSettings["LogBee.OrganizationId"],     // "<!-- ko text: organizationId --><!-- /ko -->"
+                ::ConfigurationManager.AppSettings["LogBee.ApplicationId"])      // "<!-- ko text: applicationId --><!-- /ko -->"
+            ::)
+            ::{
+                ::ApiUrl = ConfigurationManager.AppSettings["LogBee.ApiUrl"]     // "<!-- ko text: logBeeBackendUri --><!-- /ko -->"
+            ::});
+        ::}
+
+        // register HttpModule
+        ::public static KissLogHttpModule KissLogHttpModule = new KissLogHttpModule();
+
+        ::public override void Init()
+        ::{
+            ::base.Init();
+
+            ::KissLogHttpModule.Init(this);
+        ::}
+    }
+}

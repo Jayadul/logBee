@@ -1,0 +1,41 @@
+<div class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-body-tertiary">
+                <div class="modal-title" data-bind="text: fileName"></div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="preview-file-modal-content-tab" data-bs-toggle="tab" href="#preview-file-modal-content-tab-content" role="tab" aria-controls="preview-file-modal-content-tab-content" aria-selected="true">Content</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="preview-file-modal-formatted-tab" data-bs-toggle="tab" href="#preview-file-modal-formatted-tab-content" role="tab" aria-controls="preview-file-modal-formatted-tab-content" aria-selected="false">Formatted</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content border border-top-0 p-3 bg-body-tertiary">
+                    <div class="tab-pane show active" id="preview-file-modal-content-tab-content" role="tabpanel" aria-labelledby="preview-file-modal-content-tab">
+                        <div data-bind="if: usePreTagForContent">
+                            <pre class="fs--1" data-bind="text: content"></pre>
+                        </div>
+                        <div data-bind="if: !usePreTagForContent">
+                            <div class="text-break" data-bind="text: content"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="preview-file-modal-formatted-tab-content" role="tabpanel" aria-labelledby="preview-file-modal-formatted-tab">
+                        <div data-formatted-content-container>
+                            <em>loading...</em>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-falcon-default" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

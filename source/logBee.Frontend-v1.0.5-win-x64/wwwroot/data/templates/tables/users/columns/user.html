@@ -1,0 +1,11 @@
+﻿<table data-id="user">
+    <tr>
+        <th class="p-1 align-middle">User</th>
+        <td class="text-truncate ps-2">
+            <div class="avatar avatar-xl d-inline-block align-middle">
+                <img src="/img/emptyDot.png" class="rounded-soft" data-bind="attr: { 'src': APP.generateEmailAddressAvatar(user.name, 64) }" height="24" />
+            </div>
+            <span class="align-middle" data-bind="text: user.name"></span>
+        </td>
+    </tr>
+</table>

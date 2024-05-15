@@ -1,0 +1,1 @@
+define(["logBee","jquery"],function(o,t){return window.onSendLinkComplete=function(n,e){o.toggleFormLoading(this,!1),"success"!==e&&o.showXhrErrorToast(n),"success"===e&&t("#content").find("[data-container]").html(n.responseText)},{init:function(){o.bindForm("form"),o.reCaptcha.bindForm("#form"),document.getElementById("EmailAddress").focus()}}});

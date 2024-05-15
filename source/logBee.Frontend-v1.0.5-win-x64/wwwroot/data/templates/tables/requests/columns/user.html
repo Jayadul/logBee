@@ -1,0 +1,12 @@
+﻿<table data-id="user">
+    <tr>
+        <th style="width: 40px;" class="px-0 align-middle"></th>
+        <td class="text-truncate text-center px-0">
+            <div data-bind="with: $data['user']">
+                <div class="avatar avatar-m d-inline-block align-middle">
+                    <img src="/img/emptyDot.png" class="rounded-soft" data-bind="attr: { 'src': APP.generateEmailAddressAvatar(name, 64) }" />
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

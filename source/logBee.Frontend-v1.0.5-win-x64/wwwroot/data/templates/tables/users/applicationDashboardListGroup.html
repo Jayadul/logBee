@@ -1,0 +1,18 @@
+﻿<div data-bind="attr: { 'id': domId }">
+    <div>
+        <div class="position-relative mb-3">
+            <div class="list-group" data-table>
+                <div class="row" [data-bind]="template: { foreach: items, name: 'dashboard-applicationCard-user-template' }"></div>
+            </div>
+            <div class="position-absolute top-0 start-0 h-100 modal-backdrop fade" data-loading-backdrop style="width: 0; z-index: 2;"></div>
+        </div>
+        <div data-table-data-loaded-block>
+            <div class="d-flex align-items-center">
+                <div data-pagination-container data-list class="me-2"></div>
+                <div>
+                    <a href="#" data-reload-button data-loading-text="reloading...">reload</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

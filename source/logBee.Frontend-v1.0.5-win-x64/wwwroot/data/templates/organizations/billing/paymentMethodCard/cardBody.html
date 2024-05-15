@@ -1,0 +1,30 @@
+﻿<div>
+    <table style="table-layout: fixed;">
+        <tbody>
+            <tr>
+                <td class="align-top" style="width: 200px;">
+                    <div>
+                        <span class="fw-semi-bold me-2" data-bind="text: brand"></span>
+                        <span data-bind="if: isDefault">
+                            <span class="badge badge-subtle-secondary align-top">default</span>
+                        </span>
+                    </div>
+                    
+                    <div data-bind="text: '**** ' + lastFour"></div>
+                </td>
+                <td class="align-top">
+                    <div class="d-flex justify-content-end">
+                        <div class="me-3">
+                            <div>Expiry date</div>
+                            <div data-bind="text: expirationDate"></div>
+                        </div>
+                        <div>
+                            <img style="height: 50px;" height="50" class="img-thumbnail" src="/img/emptyDot.png"
+                                 data-bind="attr: { 'src': APP.creditCardBrandImage(brand), 'alt': brand }" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

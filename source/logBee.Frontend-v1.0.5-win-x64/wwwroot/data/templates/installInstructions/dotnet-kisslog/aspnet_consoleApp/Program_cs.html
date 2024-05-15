@@ -1,0 +1,35 @@
+﻿::using KissLog;
+::using KissLog.CloudListeners.Auth;
+::using KissLog.CloudListeners.RequestLogsListener;
+
+namespace ConsoleApp_NetFramework
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ::Logger.SetFactory(new LoggerFactory(new Logger(url: "ConsoleApp/Main")));
+
+            ::ConfigureKissLog();
+
+            ::IKLogger logger = Logger.Factory.Get();
+
+            logger.Info("Hello world!");
+
+            ::var loggers = Logger.Factory.GetAll();
+            ::Logger.NotifyListeners(loggers);
+        }
+
+        ::static void ConfigureKissLog()
+        ::{
+            ::KissLogConfiguration.Listeners.Add(new RequestLogsApiListener(new Application(
+                ::ConfigurationManager.AppSettings["LogBee.OrganizationId"],     // "<!-- ko text: organizationId --><!-- /ko -->"
+                ::ConfigurationManager.AppSettings["LogBee.ApplicationId"])      // "<!-- ko text: applicationId --><!-- /ko -->"
+            ::)
+            ::{
+                ::ApiUrl = ConfigurationManager.AppSettings["LogBee.ApiUrl"],    // "<!-- ko text: logBeeBackendUri --><!-- /ko -->"
+                ::UseAsync = false
+            ::});
+        ::}
+    }
+}

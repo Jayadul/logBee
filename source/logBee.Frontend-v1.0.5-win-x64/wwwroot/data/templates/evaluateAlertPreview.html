@@ -1,0 +1,21 @@
+﻿<div>
+    <div data-bind="if: success">
+        <div class="input-style-box mb-2">
+            <table class="w-100" style="table-layout: fixed; font-family: var(--falcon-font-monospace);">
+                <tbody data-bind="foreach: lines">
+                    <tr data-bind="css: {
+                            'bg-secondary-subtle': !$parent.valueAsBoolean && lineNumber === $parent.lineNumber,
+                            'bg-primary-subtle': $parent.valueAsBoolean && lineNumber === $parent.lineNumber
+                        }">
+                        <td class="text-start px-1" data-bind="text: lineNumber" style="width: 40px;"></td>
+                        <td class="text-start">
+                            <pre class="overflow-hidden" data-bind="text: line"></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

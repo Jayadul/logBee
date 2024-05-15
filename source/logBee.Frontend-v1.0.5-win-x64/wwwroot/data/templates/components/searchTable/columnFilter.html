@@ -1,0 +1,52 @@
+﻿<div class="btn-group w-100">
+    <button class="btn btn-light btn-sm dropdown-toggle text-start fw-normal" type="button" data-bs-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" data-bind="attr: { 'id': 'columnFilterButton_' + domId }">
+        <span data-bind="text: columnName" class="align-middle"></span>
+        <span class="bi-sort-down align-middle" data-has-sort-desc-inline-block></span>
+        <span class="bi-sort-down-alt align-middle" data-has-sort-asc-inline-block></span>
+        <span class="bi-funnel align-middle" data-has-filter-inline-block></span>
+    </button>
+    <div class="dropdown-menu py-0" data-popper-placement="top-start" data-bind="attr: { 'id': 'columnFilterMenu_' + domId }">
+        <div class="card shadow-none border-0" style="min-width: 420px;">
+            <div class="card-header bg-200 py-2" data-bind="text: columnName"></div>
+            <div class="card-body">
+                <div data-has-filter-block>
+                    <div class="d-grid mb-3">
+                        <button class="btn btn-falcon-primary btn-sm" type="button" data-clear-filter-button>
+                            <span class="bi-eraser"></span>
+                            <span data-bind="text: 'Clear ' + columnName + ' filter'"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div data-bind="if: hasSort">
+                    <div class="mb-3">
+                        <div class="btn-group-vertical btn-group-sm w-100" role="group" aria-label="Sort">
+                            <button class="btn btn-falcon-default" type="button" data-sort-direction="asc">
+                                Sort ascending <span class="bi-sort-down-alt fs-1 align-middle"></span>
+                            </button>
+                            <button class="btn btn-falcon-default" type="button" data-sort-direction="desc">
+                                Sort descending <span class="bi-sort-down fs-1 align-middle"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind="if: hasFilter">
+                    <div>
+                        <form data-bind="attr: { 'id': 'columnFilterForm_' + domId }">
+                            <div class="row mb-2">
+                                <div class="col-md-5">
+                                    <select class="form-select form-select-sm" autocomplete="off" data-bind="options: filter.operators, optionsText: 'text', optionsValue: 'value', attr: { 'name': 'filterOperator_' + domId, 'id': 'filterOperator_' + domId }"></select>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control form-control-sm" autocomplete="off" data-val="true" data-val-required="This field is required" data-bind="attr: { 'name': 'filterValue_' + domId, 'id': 'filterValue_' + domId, placeholder: placeholder }" />
+                                </div>
+                            </div>
+                            <button class="btn btn-falcon-primary btn-sm" type="submit">Apply</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

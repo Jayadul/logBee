@@ -1,0 +1,54 @@
+﻿<div class="card border shadow-none mb-3" data-bind="attr: { 'id': 'alertNotificationCard_' + domId }">
+    <div class="card-header border-bottom bg-body-tertiary py-2 d-flex flex-between-center cursor-pointer" data-header>
+        <div class="pe-3">
+            <div class="fw-semi-bold" data-title data-bind="text: title"></div>
+            <div data-bind="text: description"></div>
+        </div>
+        <div class="ms-auto">
+            <div class="form-check m-0">
+                <label class="m-0">
+                    <input class="form-check-input" type="checkbox" name="isEnabled" [data-bind]="checked: isEnabled" />
+                    Enabled
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div [data-bind]="if: values().length">
+            <div class="mb-3" [data-bind]="foreach: values">
+                <div class="mb-2" [data-bind]="attr: { 'data-id': $data }">
+                    <div class="badge badge-subtle-secondary text-break">
+                        <table style="table-layout: fixed;">
+                            <tbody>
+                                <tr>
+                                    <td class="text-truncate" style="max-width: 350px;">
+                                        <span [data-bind]="text: $data, attr: { 'title': $data }" class="pe-2 align-middle fs--1"></span>
+                                    </td>
+                                    <td style="width: 30px;">
+                                        <button type="button" class="btn-close align-middle fs--2" aria-label="Remove" data-remove-button></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form novalidate="novalidate" data-bind="attr: { 'id': 'alertNotificationForm_' + domId }">
+            <div class="mb-3">
+                <input class="form-control form-control-sm" type="text" autocomplete="off" data-val="true" data-val-required=""
+                       name="input"
+                       data-bind="attr: { 'placeholder': placeholder }" />
+                <div data-bind="if: !!formTextHtml">
+                    <div class="form-text fs--1" data-bind="html: formTextHtml"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-falcon-default">Add</button>
+        </form>
+    </div>
+</div>
+
+

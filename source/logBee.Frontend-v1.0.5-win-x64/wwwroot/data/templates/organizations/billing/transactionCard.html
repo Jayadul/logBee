@@ -1,0 +1,24 @@
+﻿<div class="card shadow-none px-2 py-1 bg-transparent">
+    <div>
+        <table style="table-layout: fixed; width: 100%;">
+            <tbody>
+                <tr>
+                    <td class="align-top p-0">
+                        <div>
+                            <span class="fw-semi-bold me-2" data-bind="text: brand"></span>
+                            <span data-bind="if: isDefault">
+                                <span class="badge badge-subtle-secondary align-top">default</span>
+                            </span>
+                        </div>
+
+                        <div data-bind="text: '**** ' + lastFour"></div>
+                    </td>
+                    <td class="align-top text-end p-0">
+                        <div>Expiry date</div>
+                        <div data-bind="text: expirationDate"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

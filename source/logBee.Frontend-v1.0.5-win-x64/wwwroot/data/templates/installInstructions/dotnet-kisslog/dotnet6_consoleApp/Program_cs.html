@@ -1,0 +1,49 @@
+﻿::using KissLog;
+::using KissLog.AspNetCore;
+::using KissLog.CloudListeners.Auth;
+::using KissLog.CloudListeners.RequestLogsListener;
+::using KissLog.Formatters;
+
+::Logger.SetFactory(new KissLog.LoggerFactory(new Logger(url: "ConsoleApp/Main")));
+
+IConfiguration configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .Build();
+
+::ConfigureKissLog(configuration);
+
+var services = new ServiceCollection();
+services.AddLogging(logging =>
+{
+    logging
+        .AddConfiguration(configuration.GetSection("Logging"))
+        ::.AddKissLog(options =>
+        ::{
+            ::options.Formatter = (FormatterArgs args) =>
+            ::{
+                ::if (args.Exception == null)
+                    ::return args.DefaultValue;
+
+                ::string exceptionStr = new ExceptionFormatter().Format(args.Exception, args.Logger);
+                ::return string.Join(Environment.NewLine, new[] { args.DefaultValue, exceptionStr });
+            ::};
+        ::});
+});
+var serviceProvider = services.BuildServiceProvider();
+
+ILogger logger = serviceProvider.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+
+logger.LogInformation("Hello world from dotnet6");
+
+::var loggers = Logger.Factory.GetAll();
+::Logger.NotifyListeners(loggers);
+
+::void ConfigureKissLog(IConfiguration configuration)
+::{
+    ::KissLogConfiguration.Listeners
+        ::.Add(new RequestLogsApiListener(new Application(configuration["LogBee.OrganizationId"], configuration["LogBee.ApplicationId"]))
+        ::{
+            ::ApiUrl = configuration["LogBee.ApiUrl"],
+            ::UseAsync = false
+        ::});
+::}

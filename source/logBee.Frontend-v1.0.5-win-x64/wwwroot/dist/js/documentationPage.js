@@ -1,0 +1,1 @@
+define(["logBee","jquery","js/formatFileContent"],function(t,e,i){return{init:function(){e("#content").find("pre").each(function(){const n=e(this);i.highlightContent(n.text()).then(t=>{t&&n.html(t)})})}}});

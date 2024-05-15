@@ -1,0 +1,35 @@
+﻿<p>
+    These steps describe how to install and configure Serilog.Sinks.LogBee for a .NET worker service. <br />
+    A full example can be found <a target="_blank" class="icon-link" href="https://github.com/logBee-net/serilog-sinks-logbee/tree/main/samples/Serilog.Sinks.LogBee_WorkerService"><span class="bi-box-arrow-up-right"></span> here</a>.
+</p>
+
+
+<ol>
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">Serilog.Sinks.LogBee</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package Serilog.Sinks.LogBee</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Program.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-serilog-workerService-Program_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Worker.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-serilog-workerService-Worker_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+</ol>
+

@@ -1,0 +1,22 @@
+﻿<div>
+    <table class="table table-sm table-hover m-0" style="table-layout: fixed;">
+        <tbody>
+            <tr>
+                <td class="align-middle px-3 border-bottom-0">
+                    <div class="d-flex align-items-center">
+                        <div class="status-code-icon text-truncate"
+                             data-bind="attr: { 'class': 'status-code-icon text-truncate ' + 'status-code-' + httpProperties.response.httpStatusCode }">
+                            <span class="align-middle text-800">
+                                <span data-bind="text: httpProperties.httpMethod"></span>
+                                <span data-bind="text: httpProperties.url.path"></span>
+                            </span>
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-truncate" data-bind="text: httpProperties.response.httpStatusCode + ' ' + httpProperties.response.httpStatusCodeText"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

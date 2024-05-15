@@ -1,0 +1,63 @@
+﻿Request has StatusCode >= 500
+This alert captures all the requests with StatusCode &ge; 500.
+
+function(context, callback) {
+	const statusCode = context.RequestLog.HttpProperties.Response.HttpStatusCode;
+	const absoluteUri = context.RequestLog.HttpProperties.Url.AbsoluteUri.toLowerCase();
+    const isLocalhost = absoluteUri.startsWith("http://localhost") || absoluteUri.startsWith("https://localhost");
+
+    if(isLocalhost) {
+        // we don't want to capture localhost errors
+        return callback(false);
+    }
+
+	return callback(statusCode >= 500);
+}
+
+---
+
+Request has any exceptions
+This alert captures all the requests with one exception or more exceptions.
+
+function(context, callback) {
+    const exceptions = context.RequestLog.Exceptions;
+
+	return callback(exceptions.length > 0);
+}
+
+---
+
+Request has logs with "Error" verbosity
+This alert captures all the requests which have a log message with verbosity of "Warning", "Error" or "Critical".
+
+function(context, callback) {
+    const messages = context.RequestLog.LogMessages;
+
+    for (let i = 0; i < messages.length; i++) {
+        let logMessage = messages[i];
+
+        if (/(Warning|Error|Critical)/i.test(logMessage.LogLevel)) {
+            return callback(true);
+        }
+    }
+
+    return callback(false);
+}
+
+---
+
+Capture specific URL
+This alert captures the <code>POST "/checkout/complete"</code> request.
+
+function(context, callback) {
+    const urlPath = context.RequestLog.HttpProperties.Url.Path.toLowerCase();
+    const httpMethod = context.RequestLog.HttpProperties.HttpMethod.toLowerCase();
+
+    const result =
+        urlPath === "/checkout/complete".toLowerCase() &&
+        httpMethod === "POST".toLowerCase();
+
+	return callback(result);
+}
+
+---

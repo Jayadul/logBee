@@ -1,0 +1,19 @@
+﻿<a href="#" data-open-exception class="list-group-item list-group-item-action" data-bind="attr: { 'data-exception-id': id, 'data-application-id': applicationId }">
+    <div>
+        <time data-time-ago data-bind="text: lastSeen, attr: { 'datetime': lastSeen, 'title': APP.formatDateTime(lastSeen) }"></time>
+    </div>
+    <div>
+        <div class="status-code-icon"
+             data-bind="attr: { 'class': 'status-code-icon ' + 'status-code-' + requestLog.httpProperties.response.httpStatusCode }">
+            <span class="align-middle text-800">
+                <span data-bind="text: requestLog.httpProperties.httpMethod, css: { 'fw-bold': /^(post)$/i.test(requestLog.httpProperties.httpMethod) }"></span>
+                <span data-bind="text: requestLog.httpProperties.url.path"></span>
+            </span>
+        </div>
+    </div>
+    <div>
+        <div class="text-800 text-truncate" data-bind="text: exception.exceptionType"></div>
+        <div data-bind="text: exception.exceptionMessage"></div>
+    </div>
+    <div class="d-none" data-exception-model data-bind="text: JSON.stringify(exception)"></div>
+</a>

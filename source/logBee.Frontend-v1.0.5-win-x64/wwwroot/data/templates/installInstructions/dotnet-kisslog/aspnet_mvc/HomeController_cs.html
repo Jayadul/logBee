@@ -1,0 +1,22 @@
+﻿::using KissLog;
+using System.Collections.Generic;
+using System.Web.Http;
+
+namespace MyApp.Mvc.Controllers
+{
+    public class HomeController : Controller
+    {
+        ::private readonly IKLogger _logger;
+        public HomeController()
+        {
+            ::_logger = Logger.Factory.Get();
+        }
+
+        public ActionResult Index()
+        {
+            ::_logger.Debug("Hello world from ASP.NET MVC!");
+
+            return View();
+        }
+    }
+}

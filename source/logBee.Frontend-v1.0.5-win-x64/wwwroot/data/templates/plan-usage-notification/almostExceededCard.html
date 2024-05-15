@@ -1,0 +1,6 @@
+﻿<div class="alert alert-secondary px-3 py-2 border-0 d-flex flex-between-center">
+    <div>
+        <span data-bind="text: organization.name"></span> organization has used <span data-bind="text: usage.requestsUsagePercent + '%'"></span> of the number of requests included in the <a href="#" data-bind="attr: { 'href': organization.navigation.billing }"><span data-bind="text: usage.limits.plan.displayName"></span> plan</a>.
+        The plan will reset on <time data-bind="attr: { 'datetime': usage.limits.to, 'title': usage.limits.to }, text: APP.formatDateTime(usage.limits.to, 'dd-LL-yyyy')"></time>.
+    </div>
+</div>

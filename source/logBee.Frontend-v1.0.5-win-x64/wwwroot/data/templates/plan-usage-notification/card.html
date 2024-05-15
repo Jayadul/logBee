@@ -1,0 +1,8 @@
+﻿<div>
+    <div data-bind="if: usage.requestsUsagePercent >= 100">
+        <div data-bind="template: { name: 'plan-usage-notification-exceededCard-template', data: $data }"></div>
+    </div>
+    <div data-bind="if: usage.requestsUsagePercent >= 85 && usage.requestsUsagePercent < 100">
+        <div data-bind="template: { name: 'plan-usage-notification-almostExceededCard-template', data: $data }"></div>
+    </div>
+</div>

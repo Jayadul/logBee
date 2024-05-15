@@ -1,0 +1,18 @@
+﻿<div class="card mb-3" data-application
+        data-bind="attr: { 'id': 'applicationCard_' + application.applicationId, 'data-id': application.applicationId }">
+
+    <div class="card-header bg-body-tertiary d-flex flex-between-center py-2">
+        <h6 class="mb-0">
+            <a href="#" data-bind="text: application.name, attr: { 'href': application.navigation.dashboard }"></a>
+        </h6>
+        <div class="ms-auto">
+            <a href="#" class="fs--1 text-decoration-none" data-reload-button>
+                <span class="bi-arrow-clockwise align-middle"></span> <span class="align-top" data-loading-text="reloading...">reload</span>
+            </a>
+            <a href="#" class="fs--1 text-decoration-none ms-3" title="Configuration" data-bind="attr: { 'title': application.name + ' configuration', 'href': application.navigation.configuration }">
+                <span class="bi-gear align-middle"></span>
+            </a>
+        </div>
+    </div>
+    <div data-bind="template: { name: $root.applicationCardTemplateName($data) }"></div>
+</div>

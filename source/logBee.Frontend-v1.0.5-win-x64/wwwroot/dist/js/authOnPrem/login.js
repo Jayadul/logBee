@@ -1,0 +1,1 @@
+define(["logBee","jquery","bootstrap"],function(o,e,n){return{init:function(){o.bindForm("form"),e("#activeDirectoryLogin-form").length&&o.bindForm("activeDirectoryLogin-form"),document.getElementById("Token").focus()}}});

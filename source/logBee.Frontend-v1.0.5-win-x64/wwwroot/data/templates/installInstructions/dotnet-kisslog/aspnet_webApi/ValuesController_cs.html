@@ -1,0 +1,23 @@
+﻿::using KissLog;
+using System.Collections.Generic;
+using System.Web.Http;
+
+namespace MyApp.WebApi.Controllers
+{
+    public class ValuesController : ApiController
+    {
+        ::private readonly IKLogger _logger;
+        public ValuesController()
+        {
+            ::_logger = Logger.Factory.Get();
+        }
+
+        // GET api/values
+        public IEnumerable<string> Get()
+        {
+            ::_logger.Debug("Hello world from ASP.NET WebApi!");
+
+            return new string[] { "value1", "value2" };
+        }
+    }
+}

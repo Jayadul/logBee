@@ -1,0 +1,11 @@
+﻿<div class="text-center fs--1">
+    <hr />
+    <div class="badge rounded-pill badge-subtle-primary fw-normal fs--1">current plan</div>
+
+    <div data-bind="if: !!$data['expireAt']">
+        Active until <time data-time data-bind="attr: { 'datetime': expireAt, 'title': expireAt }, text: APP.formatDateTime(expireAt, 'dd-LL-yyyy')"></time>
+    </div>
+    <div data-bind="if: !plan.isFree && renewsAutomatically">
+        Renews automatically
+    </div>
+</div>

@@ -1,0 +1,1 @@
+define(["logBee","jquery","bootstrap"],function(e,n,o){return{init:function(){e.bindForm("form"),document.getElementById("EmailAddress").focus()}}});

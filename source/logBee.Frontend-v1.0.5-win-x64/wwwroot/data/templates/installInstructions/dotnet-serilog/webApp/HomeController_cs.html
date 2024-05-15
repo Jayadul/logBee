@@ -1,0 +1,19 @@
+﻿::using Microsoft.AspNetCore.Mvc;
+
+namespace Serilog.Sinks.LogBee_WebApp.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger&lt;HomeController&gt; _logger;
+        public HomeController(ILogger&lt;HomeController&gt; logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            ::_logger.LogInformation("Hello world from {Controller}", "Home");
+            return View();
+        }
+    }
+}

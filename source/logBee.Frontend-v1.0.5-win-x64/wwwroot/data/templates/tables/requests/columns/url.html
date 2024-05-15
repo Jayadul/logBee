@@ -1,0 +1,14 @@
+﻿<table data-id="url">
+    <tr>
+        <th class="p-1 align-middle">Url</th>
+        <td class="text-truncate align-middle ps-2">
+            <div class="status-code-icon text-truncate"
+                 data-bind="attr: { 'class': 'status-code-icon text-truncate ' + 'status-code-' + httpProperties.response.httpStatusCode }">
+                <span class="align-middle text-800">
+                    <span data-bind="text: httpProperties.httpMethod, css: { 'fw-bold': /^(post)$/i.test(httpProperties.httpMethod) }"></span>
+                    <span data-bind="text: httpProperties.url.path"></span>
+                </span>
+            </div>
+        </td>
+    </tr>
+</table>

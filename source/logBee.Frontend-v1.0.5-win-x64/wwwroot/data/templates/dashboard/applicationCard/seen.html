@@ -1,0 +1,42 @@
+﻿
+<div class="card-body" data-bind="with: preloadedData()">
+    <div class="pb-2 mb-2 border-bottom border-200">
+        <div class="mb-2">
+            <div>
+                <a href="#" class="fw-semi-bold" data-bind="attr: { 'href': $parent.application.navigation.requests }">Requests</a>
+            </div>
+            <div data-bind="with: applicationData.lastRequestLog">
+                <span>last request <a href="#" data-open-request class="link-secondary" data-bind="attr: { 'data-request-id': requestLogId, 'data-application-id': $parent.applicationData.applicationId }"><time data-time-ago data-bind="text: dateTime, attr: { 'datetime': dateTime, 'title': APP.formatDateTime(dateTime) }"></time></a></span>
+            </div>
+        </div>
+        <div>
+            <canvas data-bind="attr: { 'id': 'applicationHttpTrafficChart_' + $parent.application.applicationId }" height="100"></canvas>
+        </div>
+    </div>
+    <div>
+        <div class="mb-2">
+            <div>
+                <a href="#" class="fw-semi-bold" data-bind="attr: { 'href': $parent.application.navigation.exceptions }">Exceptions</a>
+            </div>
+            <div>
+                <span><span data-bind="text: exceptions.total"></span> in the last 24 hours</span>
+            </div>
+        </div>
+        <div class="list-group" data-bind="template: { foreach: exceptions.items, name: 'dashboard-applicationCard-exception-template' }"></div>
+    </div>
+    <div data-bind="if: !!$data['users']">
+        <div class="pt-2 mt-2 border-top border-200">
+            <div class="mb-2">
+                <div>
+                    <a href="#" class="fw-semi-bold" data-bind="attr: { 'href': $parent.application.navigation.users }">Users</a>
+                </div>
+                <div>
+                    <span><span data-bind="text: users.total"></span> in the last 24 hours</span>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="row" data-bind="template: { foreach: users.items, name: 'dashboard-applicationCard-user-template' }"></div>
+            </div>
+        </div>
+    </div>
+</div>

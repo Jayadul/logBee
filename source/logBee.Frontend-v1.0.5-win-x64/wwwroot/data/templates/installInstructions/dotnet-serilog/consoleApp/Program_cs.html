@@ -1,0 +1,32 @@
+﻿::using Serilog.Sinks.LogBee;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Log.Logger =
+            new LoggerConfiguration()
+                ::.WriteTo.LogBee(
+                    ::new LogBeeApiKey(
+                        ::"<!-- ko text: organizationId --><!-- /ko -->",
+                        ::"<!-- ko text: applicationId --><!-- /ko -->",
+                        ::"<!-- ko text: logBeeBackendUri --><!-- /ko -->"
+                    ::)
+                ::)
+                ::.CreateLogger();
+
+        try
+        {
+            Log.Information("Hello form {Name}!", "Serilog");
+            throw new NullReferenceException("Oops...");
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Unhandled exception");
+        }
+        finally
+        {
+            ::Log.CloseAndFlush();
+        }
+    }
+}

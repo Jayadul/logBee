@@ -1,0 +1,53 @@
+﻿<p>
+    These steps describe how to install and configure KissLog for an ASP.NET WebApi application. <br />
+    <a href="https://github.com/KissLog-net/KissLog.Sdk.Samples/tree/main/src/netframework_WebApi" target="_blank" class="icon-link">
+        <span class="bi-box-arrow-up-right"></span> netframework_WebApi sample application
+    </a>
+</p>
+
+<ol>
+    <li class="mb-3">
+        <div>
+            Install NuGet package <span class="text-body-emphasis">KissLog.AspNet.WebApi</span>
+        </div>
+        <div>
+            <code>PM&gt; Install-Package KissLog.AspNet.WebApi</code>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">web.config</span>
+        </div>
+        <div class="container-wmax-md">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-web_config-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">Global.asax</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-aspnet_webApi-Global_asax-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Update <span class="text-body-emphasis">WebApiConfig.cs</span>
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-aspnet_webApi-WebApiConfig_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+
+    <li class="mb-3">
+        <div>
+            Write logs
+        </div>
+        <div class="container-wmax-lg">
+            <pre class="input-style-box fs--1 prettyprint linenums bg-body-tertiary" data-prettyprint data-bind="template: { name: 'installInstructions-dotnet-kisslog-aspnet_webApi-ValuesController_cs-template', data: $data }"></pre>
+        </div>
+    </li>
+</ol>
